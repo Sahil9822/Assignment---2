@@ -67,8 +67,8 @@ def check_alerts(weather_data):
 
 # Sends email alerts
 def send_alert_email(city, temp):
-    sender_email = 'sahilpawale444@gmail.com'
-    receiver_email = 'sahil.ganpat2020@vitbhopal.ac.in'
+    sender_email = 'your_email@example.com'
+    receiver_email = 'receiver_email@example.com'
     msg = MIMEText(f"Alert! Temperature in {city} has exceeded {THRESHOLD_TEMP}°C.\nCurrent Temperature: {temp}°C")
     msg['Subject'] = f"Weather Alert for {city}"
     msg['From'] = sender_email
@@ -76,7 +76,7 @@ def send_alert_email(city, temp):
 
     with smtplib.SMTP('smtp.gmail.com', 587) as server:
         server.starttls()
-        server.login(sender_email, 'Sahil444')
+        server.login(sender_email, 'your_email_password')
         server.sendmail(sender_email, receiver_email, msg.as_string())
         print(f"Alert sent for {city}")
 
